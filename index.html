@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <title>Compra Virtual</title>
+</head>
+<body>
+    <main class="main">
+
+        <div class="card-compra">
+            <div class="card-img"></div>
+            <p class="info">Laptop Gamer AMD</p>
+            <input type="text" id="cantidad" placeholder=" Cantidad">            
+            <select id="selector">
+                <option value="color">Color</option>
+                <option value="black">Negro</option>
+                <option value="gray">Gris</option>
+                <option value="white">Blanco</option>
+            </select>
+            <p class="precio">Precio: $ <span id="precio">400000</span></p>
+
+            <!-- ------------------------------------------------- evento -->
+            <button onclick="
+                let cantidad = document.querySelector('#cantidad')                
+                let precio = document.querySelector('#precio')                                              
+                let resultado = Number(cantidad.value) * Number(precio.innerHTML)
+
+                let total = document.querySelector('#total')                
+                total.innerHTML = resultado.toLocaleString('es-CL')
+        
+                let cantidadend = document.querySelector('#cantidadend')
+                cantidadend.innerHTML = cantidad.value
+
+                let color = document.querySelector('#selector')
+                let punto = document.querySelector('#colorpoint')
+                punto.style.backgroundColor = color.value
+            ">Calcular Total</button>
+            <!-- ------------------------------------------------- evento -->
+        </div>
+        
+        <div class="card-resume">
+            <h3>Resumen Compra</h3>
+            <p>Total: $ <span id="total">0</span></p>
+            <p>Cantidad: <span id="cantidadend">0</span></p>
+            <div class="color">
+                <p>Color:</p>
+                <p id="colorpoint"></p>
+            </div>
+        </div>
+
+    </main>    
+</body>
+</html>
